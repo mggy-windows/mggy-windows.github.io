@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>马哥工业 - 导航主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+        }
+        /* 顶部导航栏 B站风格 */
+        header {
+            background: #fb7299;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .logo {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .title-text {
+            font-size: 20px;
+            color: #222;
+            margin-bottom: 20px;
+            border-left: 4px solid #fb7299;
+            padding-left:10px;
+        }
+        .grid-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap:18px;
+        }
+        .link-card {
+            background:#fff;
+            border-radius:10px;
+            height:100px;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+            text-decoration:none;
+            color:#333;
+            box-shadow:0 2px 8px rgba(0,0,0,0.08);
+            transition:0.25s;
+        }
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow:0 6px 16px rgba(251,114,153,0.25);
+        }
+        .link-card .icon-text {
+            font-size:28px;
+            margin-bottom:8px;
+        }
+        .link-card .name {
+            font-size:14px;
+        }
+        footer {
+            text-align:center;
+            margin:50px 0 20px;
+            color:#888;
+            font-size:13px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部栏左上角马哥工业 -->
+    <header>
+        <div class="logo">马哥工业</div>
+    </header>
+
+    <div class="container">
+        <p class="title-text">🔗 快捷导航</p>
+        <div class="grid-box">
+            <a href="https://www.bilibili.com" target="_blank" class="link-card">
+                <div class="icon-text">📺</div>
+                <div class="name">B站</div>
+            </a>
+            <a href="https://www.youtube.com" target="_blank" class="link-card">
+                <div class="icon-text">▶️</div>
+                <div class="name">YouTube</div>
+            </a>
+            <a href="https://v.qq.com" target="_blank" class="link-card">
+                <div class="icon-text">🎬</div>
+                <div class="name">腾讯视频</div>
+            </a>
+            <a href="https://iqiyi.com" target="_blank" class="link-card">
+                <div class="icon-text">🍿</div>
+                <div class="name">爱奇艺</div>
+            </a>
+            <a href="https://youku.com" target="_blank" class="link-card">
+                <div class="icon-text">🎞️</div>
+                <div class="name">优酷</div>
+            </a>
+            <a href="https://www.office.com" target="_blank" class="link-card">
+                <div class="icon-text">📄</div>
+                <div class="name">微软Office</div>
+            </a>
+            <a href="https://docs.qq.com" target="_blank" class="link-card">
+                <div class="icon-text">📑</div>
+                <div class="name">腾讯文档</div>
+            </a>
+            <a href="https://www.feishu.cn" target="_blank" class="link-card">
+                <div class="icon-text">💼</div>
+                <div class="name">飞书</div>
+            </a>
+            <a href="https://www.notion.so" target="_blank" class="link-card">
+                <div class="icon-text">📒</div>
+                <div class="name">Notion</div>
+            </a>
+            <a href="https://www.canva.cn" target="_blank" class="link-card">
+                <div class="icon-text">🎨</div>
+                <div class="name">可画</div>
+            </a>
+           <a href="https://mc.163.com" target="_blank" class="link-card">
+                <div class="icon-text">🎮</div>
+                <div class="name">网易我的世界官网</div>
+            </a>
+           <a href="https://www.mcjs.cc" target="_blank" class="link-card">
+                <div class="icon-text">🎮</div>
+                <div class="name">网页版我的世界</div>
+            </a>
+            <a href="https://www.douyin.com" target="_blank" class="link-card">
+                <div class="icon-text">▶</div>
+                <div class="name">抖音记录美好生活[网页]</div>
+            </a>
+
+        </div>
+    </div>
+
+    <footer>
+        马哥工业 · 快捷导航主页
+    </footer>
+</body>
+</html>
