@@ -9,141 +9,266 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Microsoft Yahei", sans-serif;
+            font-family: system-ui, -apple-system, sans-serif;
         }
         body {
-            background-color: #f4f4f4;
+            background-color: #18191c; /* B站深色背景 */
+            color: #e5e9ef;
         }
-        /* 顶部导航栏 B站风格 */
-        header {
-            background: #fb7299;
-            height: 52px;
+        /* 顶部导航栏 */
+        .header {
+            background-color: #fb7299;
             display: flex;
             align-items: center;
-            padding: 0 24px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 14px 24px;
+            gap:16px;
         }
-        .logo {
-            color: white;
-            font-size: 22px;
-            font-weight: bold;
+        .title-main{
+            font-size:24px;
+            font-weight:bold;
+            color:white;
         }
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
+        .title-sub{
+            font-size:14px;
+            color:#fff8f8;
         }
-        .title-text {
-            font-size: 20px;
-            color: #222;
-            margin-bottom: 20px;
-            border-left: 4px solid #fb7299;
-            padding-left:10px;
-        }
-        .grid-box {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap:18px;
-        }
-        .link-card {
-            background:#fff;
-            border-radius:10px;
-            height:100px;
+        .grass-box-area{
             display:flex;
             flex-direction:column;
             align-items:center;
-            justify-content:center;
-            text-decoration:none;
-            color:#333;
-            box-shadow:0 2px 8px rgba(0,0,0,0.08);
-            transition:0.25s;
+            margin-left:20px;
         }
-        .link-card:hover {
-            transform: translateY(-5px);
-            box-shadow:0 6px 16px rgba(251,114,153,0.25);
+        .grass-block{
+            width:42px;
+            height:42px;
+            background:linear-gradient(#649947 0 45%,#8b6343 45% 100%);
+            border:2px solid #333;
+            border-radius:3px;
         }
-        .link-card .icon-text {
-            font-size:28px;
-            margin-bottom:8px;
+        .star-text{
+            color:#ffd700;
+            font-size:18px;
+            margin-top:3px;
         }
-        .link-card .name {
-            font-size:14px;
+        /* 搜索区域 */
+        .search-wrap{
+            max-width:700px;
+            margin:30px auto;
+            display:flex;
+            gap:8px;
+            padding:0 20px;
         }
-        footer {
+        #search-input{
+            flex:1;
+            padding:10px 16px;
+            border-radius:6px;
+            border:none;
+            font-size:16px;
+            background:#2b2c31;
+            color:#fff;
+        }
+        .search-btn{
+            padding:0 18px;
+            border-radius:6px;
+            border:none;
+            background:#fb7299;
+            color:white;
+            cursor:pointer;
+        }
+        /* 导航卡片容器 */
+        .container{
+            max-width:1000px;
+            margin:0 auto 60px;
+            padding:0 20px;
+        }
+        .nav-title{
+            font-size:20px;
+            margin-bottom:22px;
+            display:flex;
+            align-items:center;
+            gap:8px;
+        }
+        .nav-title::before{
+            content:"";
+            width:4px;
+            height:20px;
+            background:#fb7299;
+        }
+        .card-grid{
+            display:grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px,1fr));
+            gap:18px;
+        }
+        .card{
+            background:#242529;
+            border-radius:10px;
+            padding:20px 10px;
             text-align:center;
-            margin:50px 0 20px;
+            transition: 0.25s ease;
+            cursor:pointer;
+            text-decoration:none;
+            color:#e5e9ef;
+        }
+        .card:hover{
+            transform: translateY(-4px);
+            background:#2f3035;
+            box-shadow:0 6px 14px #00000044;
+        }
+        .card-icon{
+            font-size:28px;
+            margin-bottom:10px;
+        }
+        /* 底部版权 */
+        footer{
+            text-align:center;
+            padding:30px;
             color:#888;
-            font-size:13px;
+            font-size:14px;
         }
     </style>
 </head>
 <body>
-    <!-- 顶部栏左上角马哥工业 -->
-    <header>
-        <div class="logo">马哥工业</div>
-    </header>
+    <div class="header">
+        <div>
+            <span class="title-main">马哥工业</span>
+            <span class="title-sub"> 哔哩哔哩关注马哥工业回血</span>
+        </div>
+        <!-- MC草方块 + 5颗星 -->
+        <div class="grass-box-area">
+            <div class="grass-block"></div>
+            <div class="star-text">⭐⭐⭐⭐⭐</div>
+        </div>
+    </div>
+
+    <!-- 搜索框 -->
+    <div class="search-wrap">
+        <input id="search-input" placeholder="输入关键词搜索，百度/必应" type="text">
+        <button class="search-btn" onclick="searchBaidu()">百度搜索</button>
+        <button class="search-btn" onclick="searchBing()">必应搜索</button>
+    </div>
 
     <div class="container">
-        <p class="title-text">🔗 快捷导航</p>
-        <div class="grid-box">
-            <a href="https://www.bilibili.com" target="_blank" class="link-card">
-                <div class="icon-text">📺</div>
-                <div class="name">B站</div>
+        <h2 class="nav-title">快捷导航</h2>
+        <div class="card-grid">
+            <!-- 原有卡片 -->
+            <a class="card" href="https://www.bilibili.com/" target="_blank">
+                <div class="card-icon">📺</div>
+                <div>B站</div>
             </a>
-            <a href="https://www.youtube.com" target="_blank" class="link-card">
-                <div class="icon-text">▶️</div>
-                <div class="name">YouTube</div>
+            <a class="card" href="https://www.youtube.com/" target="_blank">
+                <div class="card-icon">▶️</div>
+                <div>YouTube</div>
             </a>
-            <a href="https://v.qq.com" target="_blank" class="link-card">
-                <div class="icon-text">🎬</div>
-                <div class="name">腾讯视频</div>
+            <a class="card" href="https://v.qq.com/" target="_blank">
+                <div class="card-icon">🎬</div>
+                <div>腾讯视频</div>
             </a>
-            <a href="https://iqiyi.com" target="_blank" class="link-card">
-                <div class="icon-text">🍿</div>
-                <div class="name">爱奇艺</div>
+            <a class="card" href="https://www.iqiyi.com/" target="_blank">
+                <div class="card-icon">🍿</div>
+                <div>爱奇艺</div>
             </a>
-            <a href="https://youku.com" target="_blank" class="link-card">
-                <div class="icon-text">🎞️</div>
-                <div class="name">优酷</div>
+            <a class="card" href="https://youku.com/" target="_blank">
+                <div class="card-icon">🎞️</div>
+                <div>优酷</div>
             </a>
-            <a href="https://www.office.com" target="_blank" class="link-card">
-                <div class="icon-text">📄</div>
-                <div class="name">微软Office</div>
+            <a class="card" href="https://www.office.com/" target="_blank">
+                <div class="card-icon">📄</div>
+                <div>微软Office</div>
             </a>
-            <a href="https://docs.qq.com" target="_blank" class="link-card">
-                <div class="icon-text">📑</div>
-                <div class="name">腾讯文档</div>
+            <a class="card" href="https://docs.qq.com/" target="_blank">
+                <div class="card-icon">📑</div>
+                <div>腾讯文档</div>
             </a>
-            <a href="https://www.feishu.cn" target="_blank" class="link-card">
-                <div class="icon-text">💼</div>
-                <div class="name">飞书</div>
+            <a class="card" href="https://www.feishu.cn/" target="_blank">
+                <div class="card-icon">💼</div>
+                <div>飞书</div>
             </a>
-            <a href="https://www.notion.so" target="_blank" class="link-card">
-                <div class="icon-text">📒</div>
-                <div class="name">Notion</div>
+            <a class="card" href="https://www.notion.so/" target="_blank">
+                <div class="card-icon">📒</div>
+                <div>Notion</div>
             </a>
-            <a href="https://www.canva.cn" target="_blank" class="link-card">
-                <div class="icon-text">🎨</div>
-                <div class="name">可画</div>
+            <a class="card" href="https://www.canva.cn/" target="_blank">
+                <div class="card-icon">🎨</div>
+                <div>可画</div>
             </a>
-           <a href="https://mc.163.com" target="_blank" class="link-card">
-                <div class="icon-text">🎮</div>
-                <div class="name">网易我的世界官网</div>
+            <a class="card" href="https://mc.163.com/" target="_blank">
+                <div class="card-icon">🎮</div>
+                <div>网易我的世界官网</div>
             </a>
-           <a href="https://www.mcjs.cc" target="_blank" class="link-card">
-                <div class="icon-text">🎮</div>
-                <div class="name">网页版我的世界</div>
+            <a class="card" href="https://classic.minecraft.net/" target="_blank">
+                <div class="card-icon">🎮</div>
+                <div>网页版我的世界</div>
             </a>
-            <a href="https://www.douyin.com" target="_blank" class="link-card">
-                <div class="icon-text">▶</div>
-                <div class="name">抖音记录美好生活[网页]</div>
+            <a class="card" href="https://www.douyin.com/" target="_blank">
+                <div class="card-icon">▶</div>
+                <div>抖音网页版</div>
             </a>
 
+            <!-- 新增网盘类 -->
+            <a class="card" href="https://www.aliyundrive.com/" target="_blank">
+                <div class="card-icon">☁️</div>
+                <div>阿里云盘</div>
+            </a>
+            <a class="card" href="https://pan.baidu.com/" target="_blank">
+                <div class="card-icon">🗂️</div>
+                <div>百度网盘</div>
+            </a>
+
+            <!-- 编程技术网站 -->
+            <a class="card" href="https://www.csdn.net/" target="_blank">
+                <div class="card-icon">💻</div>
+                <div>CSDN</div>
+            </a>
+            <a class="card" href="https://www.runoob.com/" target="_blank">
+                <div class="card-icon">📖</div>
+                <div>菜鸟教程</div>
+            </a>
+            <a class="card" href="https://github.com/" target="_blank">
+                <div class="card-icon">🐙</div>
+                <div>GitHub</div>
+            </a>
+            <a class="card" href="https://gitee.com/" target="_blank">
+                <div class="card-icon">🌱</div>
+                <div>Gitee</div>
+            </a>
+            <a class="card" href="https://juejin.cn/" target="_blank">
+                <div class="card-icon">📰</div>
+                <div>掘金</div>
+            </a>
+            <a class="card" href="https://www.w3school.com.cn/" target="_blank">
+                <div class="card-icon">🌐</div>
+                <div>W3school</div>
+            </a>
+
+            <!-- 再加其他实用网站 -->
+            <a class="card" href="https://b23.tv/" target="_blank">
+                <div class="card-icon">🔗</div>
+                <div>B站短链</div>
+            </a>
+            <a class="card" href="https://tool.chinaz.com/" target="_blank">
+                <div class="card-icon">🔧</div>
+                <div>站长工具</div>
+            </a>
+            <a class="card" href="https://pixabay.com/" target="_blank">
+                <div class="card-icon">🖼️</div>
+                <div>免费图库</div>
+            </a>
         </div>
     </div>
 
     <footer>
-        马哥工业 · 快捷导航主页
+        ©2026 马哥工业 | 个人导航主页，仅供??使用
     </footer>
+
+    <script>
+        function searchBaidu(){
+            let kw = document.getElementById("search-input").value.trim();
+            if(kw) window.open("https://www.baidu.com/s?wd="+encodeURIComponent(kw));
+        }
+        function searchBing(){
+            let kw = document.getElementById("search-input").value.trim();
+            if(kw) window.open("https://cn.bing.com/search?q="+encodeURIComponent(kw));
+        }
+    </script>
 </body>
 </html>
