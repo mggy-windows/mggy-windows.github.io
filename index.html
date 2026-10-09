@@ -50,6 +50,22 @@
             font-size:18px;
             margin-top:3px;
         }
+        /* 新增按钮样式 */
+        .header-right{
+            margin-left:auto;
+        }
+        .bili-follow-btn{
+            display:inline-flex;
+            align-items:center;
+            gap:6px;
+            padding:9px 16px;
+            background:#00a1d6;
+            color:#fff;
+            border-radius:20px;
+            text-decoration:none;
+            font-size:14px;
+            font-weight:bold;
+        }
         /* 搜索区域 */
         .search-wrap{
             max-width:700px;
@@ -138,15 +154,22 @@
             <div class="grass-block"></div>
             <div class="star-text">⭐⭐⭐⭐⭐</div>
         </div>
+        <div class="header-right">
+        <!-- 蓝色B站关注按钮 -->
+        <a class="bili-follow-btn"
+           href="https://space.bilibili.com/3706988234017013?spm_id_from=333.1007.0.0"
+           target="_blank"
+           rel="noopener">
+            📺 关注马哥工业
+        </a>
+        </div>
     </div>
-
     <!-- 搜索框 -->
     <div class="search-wrap">
         <input id="search-input" placeholder="输入关键词搜索，百度/必应" type="text">
         <button class="search-btn" onclick="searchBaidu()">百度搜索</button>
         <button class="search-btn" onclick="searchBing()">必应搜索</button>
     </div>
-
     <div class="container">
         <h2 class="nav-title">快捷导航</h2>
         <div class="card-grid">
@@ -203,7 +226,6 @@
                 <div class="card-icon">▶</div>
                 <div>抖音网页版</div>
             </a>
-
             <!-- 新增网盘类 -->
             <a class="card" href="https://www.aliyundrive.com/" target="_blank">
                 <div class="card-icon">☁️</div>
@@ -213,7 +235,6 @@
                 <div class="card-icon">🗂️</div>
                 <div>百度网盘</div>
             </a>
-
             <!-- 编程技术网站 -->
             <a class="card" href="https://www.csdn.net/" target="_blank">
                 <div class="card-icon">💻</div>
@@ -239,7 +260,6 @@
                 <div class="card-icon">🌐</div>
                 <div>W3school</div>
             </a>
-
             <!-- 再加其他实用网站 -->
             <a class="card" href="https://b23.tv/" target="_blank">
                 <div class="card-icon">🔗</div>
@@ -253,13 +273,44 @@
                 <div class="card-icon">🖼️</div>
                 <div>免费图库</div>
             </a>
+            <!-- ==========新增网站卡片========== -->
+            <a class="card" href="https://www.baidu.com/" target="_blank">
+                <div class="card-icon">🔍</div>
+                <div>百度首页</div>
+            </a>
+            <a class="card" href="https://cn.bing.com/" target="_blank">
+                <div class="card-icon">🔎</div>
+                <div>必应</div>
+            </a>
+            <a class="card" href="https://leetcode.cn/" target="_blank">
+                <div class="card-icon">🧩</div>
+                <div>力扣刷题</div>
+            </a>
+            <a class="card" href="https://vscode.dev/" target="_blank">
+                <div class="card-icon">📝</div>
+                <div>在线VSCode</div>
+            </a>
+            <a class="card" href="https://music.163.com/" target="_blank">
+                <div class="card-icon">🎵</div>
+                <div>网易云音乐</div>
+            </a>
+            <a class="card" href="https://www.zhihu.com/" target="_blank">
+                <div class="card-icon">💡</div>
+                <div>知乎</div>
+            </a>
+            <a class="card" href="https://www.figma.com/" target="_blank">
+                <div class="card-icon">🎨</div>
+                <div>Figma</div>
+            </a>
+            <a class="card" href="https://www.12306.cn/" target="_blank">
+                <div class="card-icon">🚄</div>
+                <div>12306</div>
+            </a>
         </div>
     </div>
-
     <footer>
         ©2026 马哥工业 | 个人导航主页，仅供??使用
     </footer>
-
     <script>
         function searchBaidu(){
             let kw = document.getElementById("search-input").value.trim();
